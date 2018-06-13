@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_map>
-#include <algorithm>
+
 
 int main() {
     bool loop = true;
@@ -21,7 +21,7 @@ int main() {
         std::string name;
         std::cin >> name;
         //transform to lower case
-        transform(name.begin(), name.end(), name.begin(), ::tolower);
+        std::transform(name.begin(), name.end(), name.begin(), ::tolower);
         auto &age = studentAges.at(name); //oops, this will throw an exception if the name isn't found;
         std::cout << name << " is " << age << " years old\n";
         loop = false;
