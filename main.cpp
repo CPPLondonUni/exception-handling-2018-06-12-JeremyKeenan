@@ -4,7 +4,6 @@
 
 
 int main() {
-    bool loop = true;
     const std::unordered_map<std::string, int> studentAges{
             {"john",    19},
             {"peter",   24},
@@ -15,7 +14,7 @@ int main() {
             {"oliver",  1337}
     };
 
-    while (loop) {
+    while (1) {
     try {
         std::cout << "Enter a name: " << std::endl;
         std::string name;
@@ -24,7 +23,7 @@ int main() {
         std::transform(name.begin(), name.end(), name.begin(), ::tolower);
         auto &age = studentAges.at(name); //oops, this will throw an exception if the name isn't found;
         std::cout << name << " is " << age << " years old\n";
-        loop = false;
+        break;
     } catch (const std::out_of_range &e) {
         //We only go inside here if the exception was thrown.
         //if you're curious, e.what() returns a string that you can read.
